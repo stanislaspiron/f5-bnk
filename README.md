@@ -33,7 +33,7 @@ Note:
     - [Kubeadm](2.1.0/01-requirements/03-kubeadm.md)
 1. [Configure NFS storageClass](2.1.0/01-requirements/04-nfs-storageClass.md)
 1. Install BNK
-    - [BNK version 2.1.0](./2.1.0/bnk/README.md)
+    - [BNK version 2.1.0](./2.1.0/02-bnk/README.md)
 1. Telemetry
     1. [Install prometheus](2.1.0/03-resources/telemetry/prometheus.md)
     2. [Install Grafana](2.1.0/03-resources/telemetry/grafana.md)
