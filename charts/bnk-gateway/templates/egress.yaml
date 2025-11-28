@@ -1,0 +1,18 @@
+{{- if (.Values.egress).enabled }}
+apiVersion: k8s.f5net.com/v3
+kind: F5SPKEgress
+metadata:
+  name: egress-{{ .Release.Namespace }}
+  namespace: f5-bnk
+spec:
+  snatType: SRC_TRANS_SNATPOOL
+  egressSnatpool: egress-snatpool-{{ .Release.Namespace }}
+  pseudoCNIConfig:
+    namespaces:
+      - {{ .Release.Namespace | quote }}
+    appPodInterface: eth0
+    vxlan:
+      create: true
+      tmmInterfaceName: internal
+      key: {{ .Values.egress.vxlanKey }}
+{{- end }}

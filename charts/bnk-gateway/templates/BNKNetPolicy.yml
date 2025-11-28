@@ -1,0 +1,18 @@
+{{- if (.Values.irule).enabled -}}
+{{- $vip_name := .Values.gateway.name }}
+apiVersion: gateway.k8s.f5net.com/v1alpha1
+kind: BNKNetPolicy
+metadata:
+  name: "netpolicy-{{ $vip_name }}"
+spec:
+  extensionRefs:
+{{- range .Values.irule.items }}
+  - kind: F5BigCneIrule
+    name: {{ .name | quote }}
+  targetRefs:
+  - kind: Gateway
+    name:  {{ $vip_name | quote }}
+    sectionName: {{ .sectionName }}
+    group: gateway.networking.k8s.io
+{{- end }}
+{{- end }}

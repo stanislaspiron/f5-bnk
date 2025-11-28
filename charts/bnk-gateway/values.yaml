@@ -1,0 +1,4 @@
+# -- Global Configuration for labels, etc.
+global:
+  labels:
+    part-of: "bnk-gateway-api"

@@ -1,0 +1,26 @@
+{{- if (.Values.l4Route).enabled -}}
+{{- range .Values.l4Route.items }}
+apiVersion: gateway.k8s.f5net.com/v1
+kind: L4Route
+metadata:
+  name: {{ .name | quote }}
+  {{- with .annotations }}
+  annotations: {{ toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  protocol: {{ .protocol | quote }}
+  {{- with .parentRefs }}
+  parentRefs:
+  {{- toYaml . | nindent 4 -}}
+  {{- end }}
+  {{- with .hostnames }}
+  hostnames:
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+  rules:
+  {{- with .rules }}
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+---
+{{- end }}
+{{- end }}

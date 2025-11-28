@@ -1,0 +1,13 @@
+{{- if (.Values.gateway).enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.gateway.name | quote }}
+spec:
+  clusterIP: None
+  publishNotReadyAddresses: true
+  ports: []
+#    - name: fake-service
+#      port: 80
+#      targetPort: 8080
+{{- end }}

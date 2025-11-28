@@ -1,0 +1,21 @@
+apiVersion: v2
+name: bnk-ingress
+description: Kubernetes Gateway API for F5 BNK.
+type: application
+version: 0.1
+appVersion: 1.0.0
+home: https://f5.com
+sources:
+  - https://github.com/stanislas/helm-bnk-gateway/tree/main/charts/bnk-ingress
+keywords:
+  - gateway-api
+  - networking
+  - Kubernetes
+  - ingress
+  - f5
+  - bnk
+maintainers:
+  - name: Stanislas PIRON
+    email: s.piron@f5.com
+    url: https://www.f5.com
+dependencies: []  # Optional dependencies if applicable

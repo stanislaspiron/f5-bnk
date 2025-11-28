@@ -1,0 +1,11 @@
+{{- if (.Values.irule).enabled -}}
+{{- range .Values.irule.items }}
+apiVersion: "k8s.f5net.com/v1"
+kind: F5BigCneIrule
+metadata:
+  name: {{ .name | quote }}
+spec:
+  iRule: >
+    {{ .code | nindent 4 }}
+{{- end }}
+{{- end }}

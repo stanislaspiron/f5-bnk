@@ -1,0 +1,14 @@
+{{- if (.Values.egress).enabled }}
+apiVersion: "k8s.f5net.com/v1"
+kind: F5SPKSnatpool
+metadata:
+  name: egress-snatpool-{{ .Release.Namespace }}
+  namespace: f5-bnk
+spec:
+  name: egress-snatpool-{{ .Release.Namespace }}
+  sharedSnatAddressEnabled: false
+  addressList:
+  {{- with .Values.egress.addresses }}
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+{{- end }}

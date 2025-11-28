@@ -1,0 +1,70 @@
+# -- Global Configuration for labels, etc.
+global:
+  labels:
+    part-of: "bnk-gateway-api"
+
+# -- Gateway API Configuration
+gateway:
+  # -- Enable Gateway API
+  enabled: true
+  # -- Gateway name. Default: helm release name
+  name: vip10
+  # -- Gateway Class name. Reference to the GatewayClass object. Default: helm release name.
+  gatewayClassName: f5-gateway-class
+  addresses:
+  - 10.245.3.10
+  # -- Define listeners. Use any format according to the original Gateway API spec.
+  listeners:
+    # -- Listener for HTTP
+    - name: http
+      protocol: HTTP
+      port: 80
+      allowedRoutes:
+        namespaces:
+          from: All
+        kinds:
+        - kind: HTTPRoute
+    - name: tcp-8080
+      protocol: TCP
+      port: 8080
+      allowedRoutes:
+        namespaces:
+          from: All
+        kinds:
+        - kind: L4Route
+          group: gateway.k8s.f5net.com
+httpRoute:
+  enabled: true
+  items:
+  - name: l7-http-vip10
+    parentRefs:
+    - name: vip10
+      sectionName: http
+    hostnames:
+    - app10.demo.local
+    rules:
+    - backendRefs:
+      - name: nginx-service
+        port: 80
+l4Route:
+  enabled: true
+  items:
+  - name: l4-tcp-vip10
+    protocol: TCP
+    parentRefs:
+    - name: vip10
+      sectionName: tcp-8080
+    rules:
+    - backendRefs:
+      - name: nginx-service
+        port: 80
+egress:
+  enabled: true
+  vxlanKey: 101
+  addresses:
+    -  
+      - 10.245.3.111
+    - 
+      - 10.245.3.112
+    -
+      - 10.245.3.113
