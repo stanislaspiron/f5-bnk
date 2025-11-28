@@ -3,6 +3,10 @@
 
 ## Variables
 
+Choose one option in:
+- workload
+- f5-tmm
+
 ### on workload2
 ```
 app_namespace="myapp"
