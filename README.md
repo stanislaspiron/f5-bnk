@@ -35,9 +35,9 @@ Note:
 1. Install BNK
     - [BNK version 2.1.0](./2.1.0/02-bnk/README.md)
 1. Telemetry
-    1. [Install prometheus](2.1.0/03-resources/telemetry/prometheus.md)
-    2. [Install Grafana](2.1.0/03-resources/telemetry/grafana.md)
-    3. [Install Grafana](2.1.0/03-resources/telemetry/dashboard.md)
+    1. [Install prometheus](2.1.0/resources/telemetry/prometheus.md)
+    2. [Install Grafana](2.1.0/resources/telemetry/grafana.md)
+    3. [Install Grafana](2.1.0/resources/telemetry/dashboard.md)
 
 
 ## Create BNK resources
@@ -45,15 +45,15 @@ Note:
 - [Install Helm repo for BNK resources](charts/README.md)
 
 - Ingress
-    - [NGINX Application](03-resources/ingress/nginx-app.md)
-    - [HTTP / HTTPS VIP](03-resources/ingress/multiple-services/gateway-HTTPRoute.md)
-    - [L4 VIP](03-resources/ingress/l4/gateway-l4-route.md)
-    - [HTTP VIP with irule](03-resources/ingress/irule/gateway-HTTPRoute.md)
-    - [HTTP with Helm Chart](03-resources/helm/ingress.md)
+    - [NGINX Application](resources/manual/ingress/nginx-app.md)
+    - [HTTP / HTTPS VIP](resources/manual/ingress/multiple-services/gateway-HTTPRoute.md)
+    - [L4 VIP](resources/manual/ingress/l4/gateway-l4-route.md)
+    - [HTTP VIP with irule](resources/manual/ingress/irule/gateway-HTTPRoute.md)
+    - [HTTP with Helm Chart](resources/helm/ingress.md)
 - Egress
-    - [Egress with Helm Chart](03-resources/helm/egress.md)
+    - [Egress with Helm Chart](resources/helm/egress.md)
 
-- [TLS Secrets for ingress resources](03-resources/helm/tls-secret.md)
+- [TLS Secrets for ingress resources](resources/helm/tls-secret.md)
 
 ## Additional resources
 
@@ -62,4 +62,4 @@ Note:
 - [VMWare port group security settings](2.1.0/01-requirements/vmware-network-security.md)
 - [Increase memory for init-f5-toda-tmstats](2.1.0/01-requirements/patch-memory-init-f5-toda-tmstats.md)
 - [License operations](./02-bnk/bnk-license.md)
-- [Create Certificate autority for apps](03-resources/certificate-autority.md)
+- [Create Certificate autority for apps](resources/certificate-autority.md)

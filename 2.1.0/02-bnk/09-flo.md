@@ -31,7 +31,7 @@ license:
   operationMode: ${f5_license_mode}
   logLevel: "info"
   jwt: ${f5_licenseJWT}
-  friendlyName: BNK-SLO
+  friendlyName: BNK Cluster 1
   teemCertUrl: "https://product.apis.f5.com/ee/v1"
   teemEntitlementUrl: "https://product-s.apis.f5.com/ee/v1"
   teemInitialConfigUrl: "https://product-s.apis.f5.com/ee/v1"
