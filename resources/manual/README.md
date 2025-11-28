@@ -6,4 +6,5 @@
 
 # Egress
 
-- [Egress with Helm Chart](resources/helm/egress.md)
+- [Egress per namespace](egress/egress.md)
+- [Firewall Policy](egress/f5BigFwPolicy-egress.md)
