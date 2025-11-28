@@ -1,6 +1,6 @@
 # F5 BNK Lab guide
 
-This documentation describes how to deploy F5 BNK on K3S cluster
+This documentation describes how to deploy F5 BNK on Kubernetes Cluster
 
 Minimum system requirement for Demo mode are
 - Single Node:
@@ -17,6 +17,7 @@ Each Node must be provisioned with 3 network Interfaces:
 - TMM Internal interface
 - TMM External interface
 
+For requirements, including Kubernetes deployment, installation commands are for Ubuntu 22.04. All kubernetes commands to deploy BNK are working on any system.
 
 Note: 
 > Every network interface must be enabled in linux configuration.  
