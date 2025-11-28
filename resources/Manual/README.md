@@ -1,0 +1,7 @@
+- Ingress
+    - [NGINX Application](ingress/nginx-app.md)
+    - [HTTP / HTTPS VIP](ingress/multiple-services/gateway-HTTPRoute.md)
+    - [L4 VIP](ingress/l4/gateway-l4-route.md)
+    - [HTTP VIP with irule](ingress/irule/gateway-HTTPRoute.md)
+- Egress
+    - [Egress with Helm Chart](resources/helm/egress.md)
