@@ -17,9 +17,9 @@ f5_bnk_version="2.1.0-3.1736.1-0.1.27"
 # - tmms ext_ip must match external network IP address configured on connected routers
 
 declare -A nodes=(\
- [0:name]=node1 [0:main_ip]=10.171.61.38 [0:int_ip]=10.245.1.251 [0:label]=workload1 \
- [1:name]=node2 [1:main_ip]=10.171.61.39 [1:int_ip]=10.245.1.252 [1:label]=workload2 \
- [2:name]=node3 [2:main_ip]=10.171.61.40 [2:int_ip]=10.245.1.253 [2:label]=f5-tmm\
+ [0:name]=node1 [0:main_ip]=10.245.0.251 [0:int_ip]=10.245.1.251 [0:label]=workload1 \
+ [1:name]=node2 [1:main_ip]=10.245.0.252 [1:int_ip]=10.245.1.252 [1:label]=workload2 \
+ [2:name]=node3 [2:main_ip]=10.245.0.253 [2:int_ip]=10.245.1.253 [2:label]=f5-tmm\
 )
 
 declare -A tmm=(\

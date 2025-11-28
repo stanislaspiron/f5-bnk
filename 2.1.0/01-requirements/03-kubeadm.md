@@ -44,7 +44,14 @@ sudo kubeadm init --pod-network-cidr=${pod_network} --service-cidr=${service_net
 EOF
 ```
 
+**IMPORTANT**  
+Make sure to copy the kubeadm join command from kubeadm init command output. It will be used to join worker nodes to the cluster
+
 # Install kubernetes on worker nodes
+
+**Run join command on all workers nodes. The command was provided by kubeadm init ouput on master node**  
+**Do not forget to prepend command with sudo**
+
 ```bash
 for i in 1 2; do
 ssh root@${nodes[${i}:main_ip]} kubeadm join XXXXX:6443 --token XXXXXXXXX \
@@ -52,21 +59,11 @@ ssh root@${nodes[${i}:main_ip]} kubeadm join XXXXX:6443 --token XXXXXXXXX \
 done
 ```
 
-# Master Node deployment
-
-```bash
-sudo kubeadm init --pod-network-cidr=192.168.0.0/16
-```
-
-**IMPORTANT**  
-Make sure to copy the kubeadm join command from kubeadm init command output. It will be used to join worker nodes to the cluster
-
 # Copy kubernetes configuration to user 
 
 ```bash
 mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+scp root@${nodes[0:main_ip]}:/etc/kubernetes/admin.conf $HOME/.kube/config
 ```
 
 # Install Calico
