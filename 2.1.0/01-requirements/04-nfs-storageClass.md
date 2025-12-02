@@ -23,8 +23,8 @@ metadata:
   name: nfs
 provisioner: nfs.csi.k8s.io
 parameters:
-  server: 10.171.61.18
-  share: /srv/nfs4/
+  server: ${nfs_server}
+  share: ${nfs_path}
 reclaimPolicy: Retain
 volumeBindingMode: Immediate
 EOF
