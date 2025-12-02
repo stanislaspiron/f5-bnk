@@ -13,11 +13,11 @@ kubectl set env  daemonsets.apps/calico-node  -n kube-system -c calico-node CALI
 # ippool vxlanMode : Get current values
 
 ```bash
-kubectl get  ippools.crd.projectcalico.org default-pool -o json | jq -r '.spec.vxlanMode'
+kubectl get  ippools.crd.projectcalico.org default-ipv4-ippool -o json | jq -r '.spec.vxlanMode'
 ```
 
 # ippool vxlanMode : Change value
 
 ```bash
-kubectl patch ippools default-pool --type='merge'    -p '{"spec":{"vxlanMode":"CrossSubnet"}}'
+kubectl patch ippools.crd.projectcalico.org default-ipv4-ippool --type='merge'    -p '{"spec":{"vxlanMode":"CrossSubnet"}}'
 ```

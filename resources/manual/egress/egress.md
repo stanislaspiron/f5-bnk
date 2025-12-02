@@ -1,63 +1,43 @@
 # Egress
 
-## Snat Pools
-
-### namespace app1
-```bash
-cat <<EOF | kubectl apply -f -
----
-apiVersion: "k8s.f5net.com/v1"
-kind: F5SPKSnatpool
-metadata:
-  name: egress-snatpool-app1
-  namespace: f5-bnk
-spec:
-  name: "egress-snatpool-app1"
-  sharedSnatAddressEnabled: false
-  addressList:
-    -  
-      - 10.245.3.121
-    - 
-      - 10.245.3.122
-    -
-      - 10.245.3.123
-EOF
-```
-### namespace app2
-
-```bash
-cat <<EOF | kubectl apply -f -
----
-apiVersion: "k8s.f5net.com/v1"
-kind: F5SPKSnatpool
-metadata:
-  name: egress-snatpool-app2
-  namespace: f5-bnk
-spec:
-  name: "egress-snatpool-app2"
-  sharedSnatAddressEnabled: false
-  addressList:
-    -  
-      - 10.245.3.131
-    - 
-      - 10.245.3.132
-    -
-      - 10.245.3.133
-EOF
-```
-
 ## Create Egress
 
 ### Variables
 ```bash
-app_namespace=app1
+app_namespace=myapp
+snat_prefix="10.245.3.11"
 ```
 
 ```bash
-app_namespace=app2
+app_namespace=myapp2
+snat_prefix="10.245.3.12"
 ```
 
-### configuration
+
+
+## Snat Pools
+
+```bash
+cat <<EOF | kubectl apply -f -
+---
+apiVersion: "k8s.f5net.com/v1"
+kind: F5SPKSnatpool
+metadata:
+  name: egress-snatpool-${app_namespace}
+  namespace: f5-bnk
+spec:
+  name: "egress-snatpool-${app_namespace}"
+  sharedSnatAddressEnabled: false
+  addressList:
+    -  
+      - ${snat_prefix}1
+    - 
+      - ${snat_prefix}2
+    -
+      - ${snat_prefix}3
+EOF
+```
+### Egress configuration
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -77,7 +57,7 @@ spec:
     vxlan:
       create: true
       tmmInterfaceName: internal
-      key: 101
+#      key: 111
 EOF
 ```
 

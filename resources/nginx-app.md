@@ -9,7 +9,7 @@ Choose one option in:
 
 ### on workload2
 ```
-app_namespace="myapp"
+app_namespace="myapp2"
 node_app="workload2"
 ```
 

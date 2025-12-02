@@ -17,15 +17,15 @@ f5_bnk_version="2.1.0-3.1736.1-0.1.27"
 # - tmms ext_ip must match external network IP address configured on connected routers
 
 declare -A nodes=(\
- [0:name]=node1 [0:main_ip]=10.245.0.251 [0:int_ip]=10.245.1.251 [0:label]=workload1 \
- [1:name]=node2 [1:main_ip]=10.245.0.252 [1:int_ip]=10.245.1.252 [1:label]=workload2 \
- [2:name]=node3 [2:main_ip]=10.245.0.253 [2:int_ip]=10.245.1.253 [2:label]=f5-tmm\
+ [0:name]=node1 [0:main_ip]=10.245.0.251 [0:int_ip]=172.16.245.251 [0:label]=workload1 \
+ [1:name]=node2 [1:main_ip]=10.245.0.252 [1:int_ip]=172.16.245.252 [1:label]=workload2 \
+ [2:name]=node3 [2:main_ip]=10.245.0.253 [2:int_ip]=172.16.245.253 [2:label]=f5-tmm\
 )
 
 declare -A tmm=(\
- [0:int_ip]=10.245.1.81 [0:ext_ip]=10.245.2.1 \
- [1:int_ip]=10.245.1.82 [1:ext_ip]=10.245.2.2 \
- [2:int_ip]=10.245.1.83 [2:ext_ip]=10.245.2.3 \
+ [0:int_ip]=172.16.245.81 [0:ext_ip]=10.245.2.1 \
+ [1:int_ip]=172.16.245.82 [1:ext_ip]=10.245.2.2 \
+ [2:int_ip]=172.16.245.83 [2:ext_ip]=10.245.2.3 \
 )
 
 # Each interface name must match interface name listed in "ip -br a" command output
