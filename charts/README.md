@@ -1,7 +1,7 @@
 # Install F5 BNK Helm Chart
 
 ```bash
-helm repo add --username <username> --password <password> helm-bnk-gateway  'https://raw.githubusercontent.com/stanislaspiron/k3s-bnk/master/charts/'
+helm repo add helm-bnk-gateway  'https://raw.githubusercontent.com/stanislaspiron/f5-bnk/master/charts/'
 ```
 
 # Update repository
