@@ -8,6 +8,7 @@ ssh-keygen
 ## Copy SSH key to nodes
 ```bash
 for i in 0 1 2; do
+ssh-keygen -R ${nodes[${i}:main_ip]}
 ssh-copy-id -o StrictHostKeyChecking=accept-new root@${nodes[${i}:main_ip]};
 done
 ```
