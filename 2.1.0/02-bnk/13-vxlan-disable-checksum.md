@@ -1,4 +1,4 @@
-# Disable VXLAN checksum offload
+# Disable TCP Checksum on VXLAN
 
 TCP offload engine  is a technology used in some network interface cards (NIC) to offload processing of the entire TCP/IP stack to the network controller.
 
@@ -9,8 +9,8 @@ In virtual environments, the checksum can be malformed, leading to dropped packe
 This feature can be disabled by setting DISABLE_CHECKSUM_OFFLOAD=true on CSRC pods.
 
 This can be configured with one of following methods:
-- Create an entry in BNKGatewayClass manifest (issue under investigation)
-- Use following command
+- Create an entry in BNKGatewayClass manifest (commented in current version, issue under investigation)
+- Use following command :
 
 ```bash
 kubectl set env  daemonset -n ${f5_utils_namespace} f5-spk-csrc DISABLE_CHECKSUM_OFFLOAD=true
