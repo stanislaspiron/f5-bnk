@@ -1,19 +1,42 @@
-# Create a pod to ping resources in ns1
+# Create a pod to ping resources in ${app_namespace}
 
-```bash
-kubectl create namespace ns1
+## Variables
+
+Choose one option in:
+- workload
+- f5-tmm
+
+### on workload2
+```
+app_namespace="myapp2"
+node_app="workload2"
 ```
 
+### on f5-tmm
+
+```
+app_namespace="myapp"
+node_app="f5-tmm"
+```
+
+## Create namespace if not exists
+
+```bash
+kubectl create namespace ${app_namespace}
+```
+## Deploy netshoot pod
 ```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
   name: netshoot
-  namespace: ns1
+  namespace: ${app_namespace}
   labels:
     app: netshoot
 spec:
+  nodeSelector:
+    app: ${node_app}
   containers:
   - image: nicolaka/netshoot
     command:
@@ -26,39 +49,5 @@ EOF
 ```
 
 ```bash
-kubectl exec -it -n ns1 netshoot -- /bin/bash
-```
-
-
-# Create a pod to ping resources in ns2
-
-```bash
-kubectl create namespace ns2
-```
-
-```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: Pod
-metadata:
-  name: netshoot
-  namespace: ns2
-  labels:
-    app: netshoot
-spec:
-#  nodeSelector:
-#    app: f5-tmm
-  containers:
-  - image: nicolaka/netshoot
-    command:
-      - "sleep"
-      - "604800"
-    imagePullPolicy: IfNotPresent
-    name: netshoot
-  restartPolicy: Always
-EOF
-```
-
-```
-kubectl exec -it -n ns2 netshoot -- /bin/bash
+kubectl exec -it -n ${app_namespace} netshoot -- /bin/bash
 ```

@@ -72,9 +72,9 @@ spec:
         # K3S POD CIDR = 10.42.0.0/16
         # K3S Services CIDR = 10.43.0.0/16
         value: "${pod_network},${service_network}"
-      # Below is specific to VM environments only : disable VXLAN checksum
-      - name: "DISABLE_CHECKSUM_OFFLOAD"
-        value: “true"
+      # Below is specific to VM environments only : disable VXLAN checksum - does not work with pod and tmm on same node
+#      - name: "DISABLE_CHECKSUM_OFFLOAD"
+#        value: “true"
     tmm:
       env:
       - name: "TMM_CALICO_ROUTER"
