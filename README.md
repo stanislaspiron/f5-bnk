@@ -41,7 +41,9 @@ Note:
 
 ## BNK resources
 
-- [NGINX Application](resources/nginx-app.md)
+- Test applications
+    - [NGINX Application](resources/app-test/nginx.md)
+    - [Netshoot](resources/app-test/netshoot.md)
 
 - [Manual resources](resources/manual/README.md)
 - [Helm resources](resources/helm/README.md)

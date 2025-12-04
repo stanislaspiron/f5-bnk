@@ -20,6 +20,8 @@ app_namespace="myapp"
 node_app="f5-tmm"
 ```
 
+## Create namespace if not exists
+
 ```bash
 kubectl create namespace  ${app_namespace}
 ```
