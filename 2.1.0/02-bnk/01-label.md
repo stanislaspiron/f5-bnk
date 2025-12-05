@@ -3,8 +3,8 @@
 During the installation of BIG-IP Next for Kubernetes, the data plane components will be installed on cluster nodes that carry the ‘f5-tmm’ label. 
 
 ```bash
-for i in 0 1 2; do
-kubectl label node ${nodes[${i}:name]} app=${nodes[${i}:label]}
+for (( i=1; i<=${nodes[length]}; i++ )); do
+  kubectl label node ${nodes[${i}:name]} app=${nodes[${i}:label]}
 done
 ```
 

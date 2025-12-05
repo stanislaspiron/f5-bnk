@@ -7,7 +7,7 @@ ssh-keygen
 
 ## Copy SSH key to nodes
 ```bash
-for i in 0 1 2; do
+for (( i=1; i<=${nodes[length]}; i++ )); do
 ssh-keygen -R ${nodes[${i}:main_ip]}
 ssh-copy-id -o StrictHostKeyChecking=accept-new root@${nodes[${i}:main_ip]};
 done
@@ -15,7 +15,7 @@ done
 
 ## Rename Nodes
 ```bash
-for i in 0 1 2; do
+for (( i=1; i<=${nodes[length]}; i++ )); do
 ssh root@${nodes[${i}:main_ip]} hostnamectl hostname ${nodes[${i}:name]} ;
 done
 export PS1='[\u@\h \W]\$'
@@ -24,7 +24,7 @@ exec bash
 
 ## Configure nodes network
 ```bash
-for i in 0 1 2; do
+for (( i=1; i<=${nodes[length]}; i++ )); do
 ssh root@${nodes[${i}:main_ip]} tee  /etc/netplan/90-external.yaml > /dev/null <<EOF
 network:
   version: 2

@@ -16,8 +16,8 @@ In this lab, TMM networks are configured with following componants:
 
 Use the following command to annotate the node (execute this for every nodes in the cluster):
 ```bash
-for i in 0 1 2; do
-kubectl annotate node ${nodes[${i}:name]} k8s.ovn.org/node-primary-ifaddr='{"ipv4":"'${nodes[${i}:int_ip]}'"}'
+for (( i=1; i<=${nodes[length]}; i++ )); do
+  kubectl annotate node ${nodes[${i}:name]} k8s.ovn.org/node-primary-ifaddr='{"ipv4":"'${nodes[${i}:int_ip]}'"}'
 done
 ```
 *This IP address must match Internal node IP*
@@ -30,7 +30,7 @@ kubectl get nodes -o yaml | grep node-primary-ifaddr
 Update Felix Configuration to allow VXLAN ingress in Calico from Internal TMM self IPs
 
 ```bash
-kubectl patch felixconfiguration default --type='merge' -p='{"spec": {"externalNodesList": ["'${tmm[0:int_ip]}'","'${tmm[1:int_ip]}'","'${tmm[2:int_ip]}'"]}}'
+kubectl patch felixconfiguration default --type='merge' -p='{"spec": {"externalNodesList": ["'${tmm[1:int_ip]}'","'${tmm[2:int_ip]}'","'${tmm[3:int_ip]}'"]}}'
 ```
 *This IP address must match Internal tmm self-IP*
 

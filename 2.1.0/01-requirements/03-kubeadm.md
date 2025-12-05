@@ -1,7 +1,7 @@
 
 # Install kube requirements
 ```bash
-for i in 0 1 2; do
+for (( i=1; i<=${nodes[length]}; i++ )); do
 ssh root@${nodes[${i}:main_ip]} 'bash -s'<<EOF
 # Enable IP Forward
 echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
@@ -53,7 +53,7 @@ Make sure to copy the kubeadm join command from kubeadm init command output. It 
 **Do not forget to prepend command with sudo**
 
 ```bash
-for i in 1 2; do
+for (( i=2; i<=${nodes[length]}; i++ )); do
 ssh root@${nodes[${i}:main_ip]} kubeadm join XXXXX:6443 --token XXXXXXXXX \
         --discovery-token-ca-cert-hash sha256:XXXXXXXXXXXXXX
 done
@@ -90,11 +90,11 @@ sudo snap install helm --classic
 ```
 
 # show nodes taint
-```
+```bash
 kubectl get nodes -o=json | jq -r '.items[] | .metadata.name + "\t" + (if .spec.taints then (.spec.taints | map(.key + "=" + (.value // "") + ":" + .effect) | join(", ")) else "No taints" end)'
 ```
 
  # Remove control plan taint on master
-```
+```bash
 kubectl taint nodes ${nodes[0:name]} node-role.kubernetes.io/control-plane-
 ```

@@ -18,16 +18,21 @@ env_proxy=http://1.2.3.4:8080
 # - tmms ext_ip must match external network IP address configured on connected routers
 
 declare -A nodes=(\
- [0:name]=node1 [0:main_ip]=10.245.0.251 [0:int_ip]=172.16.245.251 [0:label]=workload1 \
- [1:name]=node2 [1:main_ip]=10.245.0.252 [1:int_ip]=172.16.245.252 [1:label]=workload2 \
- [2:name]=node3 [2:main_ip]=10.245.0.253 [2:int_ip]=172.16.245.253 [2:label]=f5-tmm\
+ [1:name]=node1 [1:main_ip]=10.245.0.251 [1:int_ip]=172.16.245.251 [1:label]=workload1 \
+ [2:name]=node2 [2:main_ip]=10.245.0.252 [2:int_ip]=172.16.245.252 [2:label]=workload2 \
+ [3:name]=node3 [3:main_ip]=10.245.0.253 [3:int_ip]=172.16.245.253 [3:label]=f5-tmm\
 )
 
 declare -A tmm=(\
- [0:int_ip]=172.16.245.81 [0:ext_ip]=10.245.2.1 \
- [1:int_ip]=172.16.245.82 [1:ext_ip]=10.245.2.2 \
- [2:int_ip]=172.16.245.83 [2:ext_ip]=10.245.2.3 \
+ [1:int_ip]=172.16.245.1 [1:ext_ip]=10.245.2.1 \
+ [2:int_ip]=172.16.245.2 [2:ext_ip]=10.245.2.2 \
+ [3:int_ip]=172.16.245.3 [3:ext_ip]=10.245.2.3 \
 )
+# Do not edit these lines
+nodes[length]=0; for i in {1..10}; do if [ -n "${nodes[${i}:main_ip]}" ]; then ((nodes[length]++)); fi; done
+tmm[length]=0; for i in {1..10}; do if [ -n "${tmm[${i}:int_ip]}" ]; then ((tmm[length]++)); fi; done
+
+
 
 # Each interface name must match interface name listed in "ip -br a" command output
 external_interface=External
