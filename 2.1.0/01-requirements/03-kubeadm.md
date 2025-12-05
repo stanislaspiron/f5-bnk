@@ -39,7 +39,7 @@ done
 
 # Install kubernetes master
 ```bash
-ssh root@${nodes[0:main_ip]} 'bash -s'<<EOF
+ssh root@${nodes[1:main_ip]} 'bash -s'<<EOF
 sudo kubeadm init --pod-network-cidr=${pod_network} --service-cidr=${service_network}
 EOF
 ```
@@ -63,7 +63,7 @@ done
 
 ```bash
 mkdir -p $HOME/.kube
-scp root@${nodes[0:main_ip]}:/etc/kubernetes/admin.conf $HOME/.kube/config
+scp root@${nodes[1:main_ip]}:/etc/kubernetes/admin.conf $HOME/.kube/config
 ```
 
 # Install Calico
@@ -96,5 +96,5 @@ kubectl get nodes -o=json | jq -r '.items[] | .metadata.name + "\t" + (if .spec.
 
  # Remove control plan taint on master
 ```bash
-kubectl taint nodes ${nodes[0:name]} node-role.kubernetes.io/control-plane-
+kubectl taint nodes ${nodes[1:name]} node-role.kubernetes.io/control-plane-
 ```
