@@ -59,9 +59,9 @@ spec:
   interfaces:
     - "1.1"
   selfip_v4s:
-    - ${tmm[0:ext_ip]}
     - ${tmm[1:ext_ip]}
     - ${tmm[2:ext_ip]}
+    - ${tmm[3:ext_ip]}
   prefixlen_v4: 24
   selfip_v6s: []
   prefixlen_v6: 96
@@ -79,9 +79,9 @@ spec:
   interfaces:
     - "1.2"
   selfip_v4s:
-    - ${tmm[0:int_ip]}
     - ${tmm[1:int_ip]}
     - ${tmm[2:int_ip]}
+    - ${tmm[3:int_ip]}
   prefixlen_v4: 24
   selfip_v6s: []
   prefixlen_v6: 96
@@ -96,4 +96,3 @@ kubectl exec -it daemonset/f5-tmm -c debug -n ${f5_bnk_namespace} -- bash
 
 
 [Back](11-gatewaclass.md)  
-[Next](13-vxlan-disable-checksum.md)
