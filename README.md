@@ -26,6 +26,7 @@ Note:
 
 ## Lab deployment
 
+1. [Create variables file](2.1.0/01-requirements/01-variables.md)
 1. Configure nodes network interfaces
     - [Dedicated f5-tmm nodes](2.1.0/01-requirements/02-host-network.md)
     - [App pods and f5-tmm running on same nodes](2.1.0/01-requirements/02-host-network-macvlan.md)
