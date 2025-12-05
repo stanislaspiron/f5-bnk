@@ -32,6 +32,14 @@ Update Felix Configuration to allow VXLAN ingress in Calico from Internal TMM se
 ```bash
 kubectl patch felixconfiguration default --type='merge' -p='{"spec": {"externalNodesList": ["'${tmm[1:int_ip]}'","'${tmm[2:int_ip]}'","'${tmm[3:int_ip]}'"]}}'
 ```
+
+Verify Felix Configuration
+
+```bash
+kubectl get felixconfiguration default -o json | jq -r '.spec.externalNodesList'
+```
+
+
 *This IP address must match Internal tmm self-IP*
 
 # Create TMM VLANs
