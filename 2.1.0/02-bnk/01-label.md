@@ -18,10 +18,23 @@ kubectl get node --show-labels
 
 Add a taint to the nodes to restrict these nodes to running only the TMM and prevent Control Plane workloads to be scheduled on the DPU nodes. This taint will still permit other system-level daemonsets, like Flannel, to be executed.
 
-```
-kubectl taint nodes kube-node1 dpu=true:NoSchedule
+```bash
+for (( i=1; i<=${nodes[length]}; i++ )); do
+  if [ $dedicated_tmm_nodes = true ]  && [ ${nodes[${i}:label]} = "f5-tmm" ]; 
+    then 
+      kubectl taint nodes ${nodes[${i}:name]} dpu=true:NoSchedule
+    else 
+      # disable dpu taint, ignore error if tain did not set previously
+      kubectl taint nodes ${nodes[${i}:name]} dpu- 2> /dev/null
+  fi;
+done
 ```
 
+result
+
+```
+node/node3 tainted
+```
 
 [Back](README.md)  
 [Next](02-namespaces.md)

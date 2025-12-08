@@ -22,6 +22,8 @@ declare -A nodes=(\
  [2:name]=node2 [2:main_ip]=10.245.0.252 [2:int_ip]=172.16.245.252 [2:label]=workload2 \
  [3:name]=node3 [3:main_ip]=10.245.0.253 [3:int_ip]=172.16.245.253 [3:label]=f5-tmm\
 )
+# If dedicated is true, nodes with label f5-tmm will be tainted to dpu=true:NoSchedule
+dedicated_tmm_nodes=false
 
 declare -A tmm=(\
  [1:int_ip]=172.16.245.1 [1:ext_ip]=10.245.2.1 \
