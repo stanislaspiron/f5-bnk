@@ -2,7 +2,8 @@
 # Install kube requirements
 ```bash
 for (( i=1; i<=${nodes[length]}; i++ )); do
-ssh root@${nodes[${i}:main_ip]} 'bash -s'<<EOF
+echo "Installing K8S dependencies on ${nodes[${i}:name]}"
+ssh -q root@${nodes[${i}:main_ip]} 'bash -s'<<EOF
 # Enable IP Forward
 echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
@@ -44,27 +45,24 @@ sudo kubeadm init --pod-network-cidr=${pod_network} --service-cidr=${service_net
 EOF
 ```
 
-**IMPORTANT**  
-Make sure to copy the kubeadm join command from kubeadm init command output. It will be used to join worker nodes to the cluster
-
-# Install kubernetes on worker nodes
-
-**Run join command on all workers nodes. The command was provided by kubeadm init ouput on master node**  
-**Do not forget to prepend command with sudo**
-
-```bash
-for (( i=2; i<=${nodes[length]}; i++ )); do
-ssh root@${nodes[${i}:main_ip]} kubeadm join XXXXX:6443 --token XXXXXXXXX \
-        --discovery-token-ca-cert-hash sha256:XXXXXXXXXXXXXX
-done
-```
-
 # Copy kubernetes configuration to user 
 
 ```bash
 mkdir -p $HOME/.kube
+echo "Installing K8S on ${nodes[1:name]}"
 scp root@${nodes[1:main_ip]}:/etc/kubernetes/admin.conf $HOME/.kube/config
 ```
+
+# Install kubernetes on worker nodes
+
+```bash
+join_command=$(ssh -q root@${nodes[1:main_ip]} kubeadm token create --print-join-command)
+for (( i=2; i<=${nodes[length]}; i++ )); do
+echo "Installing K8S on ${nodes[${i}:name]}"
+ssh -q root@${nodes[${i}:main_ip]} ${join_command}
+done
+```
+
 
 # Install Calico
 ```bash

@@ -39,7 +39,7 @@ tmm[length]=0; for i in {1..10}; do if [ -n "${tmm[${i}:int_ip]}" ]; then ((tmm[
 # Each interface name must match interface name listed in "ip -br a" command output
 external_interface=External
 #external_interface=ens192
- 
+
 internal_interface=Internal
 #internal_interface=ens224
 
