@@ -24,28 +24,6 @@ spec:
     action: drop
 EOF
 ```
-# Log publisher
-
-```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: k8s.f5net.com/v1
-kind: F5BigLogHslpub
-metadata:
-  name: hsl-pub-${app_namespace}
-  namespace: ${app_namespace}
-spec:
-  pool:
-  - name: hsl-${app_namespace}
-    endpoint:
-    - 10.245.2.74:514
-  syslog:
-  - name: syslog
-    format: rfc5424
-    protocol: tcp
-    distribution: adaptive
-    pool: hsl-${app_namespace}
-EOF
-```
 
 # Log Profile
 
@@ -60,7 +38,7 @@ spec:
   firewall:
     enabled: true
     network:
-      publisher: hsl-pub-${app_namespace}
+      publisher: hsl-pub-${f5_bnk_namespace}
       events:
         aclMatchAccept: true
         aclMatchDrop: true
@@ -92,7 +70,7 @@ EOF
 ```bash
 cat <<EOF | kubectl apply -f -
 ---
-apiVersion: "gateway.k8s.f5net.com/v1"
+apiVersion: "gateway.k8s.f5net.com/v1alpha1"
 kind: BNKSecPolicy
 metadata:
   name: secpolicy-${vip_name}
@@ -136,7 +114,14 @@ EOF
 kubectl get f5bigfwpolicy.k8s.f5net.com -n ${app_namespace}
 ```
 
+# List Log Profile
+```bash
+kubectl get F5BigLogProfile.k8s.f5net.com -n ${app_namespace}
+```
+
 # List AFM Policy association
 ```bash
 kubectl get bnksecpolicy.gateway.k8s.f5net.com -n ${app_namespace}
 ```
+
+

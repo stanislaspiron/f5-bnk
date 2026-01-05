@@ -12,3 +12,4 @@
 1. [BNK Gateway Class](10-bnk.md)
 1. [Gateway Class](11-gatewaclass.md)
 1. [TMM Networking](12-tmm-networking.md)
+1. [Log Publisher](13-log-publisher.md)
