@@ -8,6 +8,11 @@ app_namespace="myapp"
 app_vip="10.245.3.10"
 ```
 
+```
+vip_name="vip11"
+app_namespace="myapp2"
+app_vip="10.245.3.11"
+```
 
 ## Create Helm values
 
