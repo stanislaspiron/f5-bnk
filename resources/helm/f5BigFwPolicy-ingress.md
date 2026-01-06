@@ -1,5 +1,14 @@
 # Firewall Policy
 
+This section is not managed by Helm, but is dedicated to attach a security firewall policy to an application created by Helm.
+
+Security log profile assignment works for gateways with following requirements:
+
+- F5BigLogHslpub MUST be created in same namespace as BNKGatewayClass
+- BNKSecPolicy MUST be created in same namespace as Gateway
+- F5BigLogProfile MUST be created in same namespace as BNKSecPolicy
+- F5BigFwPolicy MUST be created in same namespace as BNKSecPolicy
+
 ```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: "k8s.f5net.com/v1"
@@ -12,8 +21,7 @@ spec:
   - name: accept-from-jumphost
     ipProtocol: any
     source:
-      addresses:
-      - 10.245.2.74
+      addresses: ${allowed_clients}
     logging: true
     action: accept
   - name: drop-all

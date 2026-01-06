@@ -6,6 +6,7 @@
 vip_name="vip11"
 app_namespace="myapp"
 app_vip="10.245.3.11"
+allowed_clients="['10.245.2.74']"
 ```
 
 

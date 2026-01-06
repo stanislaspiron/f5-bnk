@@ -6,12 +6,14 @@
 vip_name="vip10"
 app_namespace="myapp"
 app_vip="10.245.3.10"
+allowed_clients="['10.245.2.74']"
 ```
 
 ```
 vip_name="vip11"
 app_namespace="myapp2"
 app_vip="10.245.3.11"
+allowed_clients="['10.245.2.0/24']"
 ```
 
 ## Create Helm values
