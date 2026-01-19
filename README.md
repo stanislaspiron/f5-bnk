@@ -30,8 +30,7 @@ Note:
 1. Configure nodes network interfaces
     - [Dedicated f5-tmm nodes](2.1.0/01-requirements/02-host-network.md)
     - [App pods and f5-tmm running on same nodes](2.1.0/01-requirements/02-host-network-macvlan.md)
-1. Install Kubernetes cluster
-    - [Kubeadm](2.1.0/01-requirements/03-kubeadm.md)
+1. [Install Kubernetes cluster with Kubeadm](2.1.0/01-requirements/03-kubeadm.md)
 1. [Configure NFS storageClass](2.1.0/01-requirements/04-nfs-storageClass.md)
 1. Install BNK
     - [BNK version 2.1.0](./2.1.0/02-bnk/README.md)

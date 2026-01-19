@@ -8,8 +8,10 @@ All this documentation uses following variables
 cat <<EOF > bnk-env.sh
 f5_utils_namespace=f5-utils
 f5_bnk_namespace=f5-bnk
+f5_flp_namespace=f5-license-proxy
 telemetry_namespace=f5-analytics
-f5_flo_version=v1.198.4-0.1.36
+# f5_flo_version will be added by bnk manifest parsing. requires yq installed.
+#f5_flo_version=v1.198.4-0.1.36
 f5_bnk_version="2.1.0-3.1736.1-0.1.27"
 env_proxy=http://1.2.3.4:8080
 # For each node, 
@@ -52,6 +54,10 @@ service_network=10.96.0.0/12
 nfs_server=10.171.61.18
 nfs_path="/srv/nfs4/"
 
+# License modes : 
+# - connected
+# - disconnected
+# - f5licenseproxy
 f5_license_mode=connected
 # Copy here the license JWT
 f5_licenseJWT=XXXXX
