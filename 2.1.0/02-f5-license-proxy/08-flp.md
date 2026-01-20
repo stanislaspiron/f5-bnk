@@ -1,6 +1,6 @@
 # F5 License Proxy
 
-## F5 License Proxyinstallation
+## F5 License Proxy installation
 
 Login to F5 Helm repo
 
