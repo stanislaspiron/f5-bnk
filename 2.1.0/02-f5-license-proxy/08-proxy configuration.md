@@ -27,7 +27,7 @@ cat cne_pull_64.json | helm registry login -u _json_key_base64 --password-stdin 
 ```
 
 ```bash
-helm install f5-license-proxy oci://repo.f5.com/charts/f5-license-proxy \
+helm update f5-license-proxy oci://repo.f5.com/charts/f5-license-proxy \
 --version ${flp_version} \
 --namespace ${f5_flp_namespace} \
 --set flp.isProxyTlsEnabled=true \
