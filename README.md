@@ -33,7 +33,7 @@ Note:
 1. [Install Kubernetes cluster with Kubeadm](2.1.0/01-requirements/03-kubeadm.md)
 1. [Configure NFS storageClass](2.1.0/01-requirements/04-nfs-storageClass.md)
 1. Optional - Install F5 License Proxy
-    - [FLP version 2.1.0](./2.1.0/02-flp/README.md)
+    - [FLP version 2.1.0](./2.1.0/02-f5-license-proxy/README.md)
 1. Install BNK
     - [BNK version 2.1.0](./2.1.0/03-bnk/README.md)
 1. Telemetry
