@@ -20,7 +20,7 @@ containerPlatform: Generic
 ServiceIPFamily: ipv4
 
 namespace: "${f5_bnk_namespace}"
-#sharedComponentNamespace: "${f5_bnk_namespace}"
+sharedComponentNamespace: "${f5_utils_namespace}"
 
 image:
   repository: repo.f5.com/images

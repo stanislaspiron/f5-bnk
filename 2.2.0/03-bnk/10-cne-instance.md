@@ -20,7 +20,7 @@ metadata:
 spec:
   manifestVersion: ${f5_bnk_version}
   product:
-    gatewayAPI: false
+    gatewayAPI: true
     type: BNK
   wholeCluster: true
   # Disable telemetry
@@ -33,7 +33,7 @@ spec:
     clusterIssuer: bnk-intermediate-ca
   deploymentSize: "Small"
   registry:
-    uri: "repo.f5.com/images"
+    uri: "repo.f5.com"
     imagePullSecrets:
     - name: far-secret
     imagePullPolicy: Always
