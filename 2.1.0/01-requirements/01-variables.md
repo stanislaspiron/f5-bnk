@@ -5,7 +5,7 @@ All this documentation uses following variables
 ## Create bnk-env.sh file
 
 ```bash
-cat <<EOF > bnk-env.sh
+cat <<'EOF' > bnk-env.sh
 f5_utils_namespace=f5-utils
 f5_bnk_namespace=f5-bnk
 f5_flp_namespace=f5-license-proxy
