@@ -34,8 +34,10 @@ Note:
 1. [Configure NFS storageClass](2.1.0/01-requirements/04-nfs-storageClass.md)
 1. Optional - Install F5 License Proxy
     - [FLP version 2.1.0](./2.1.0/02-f5-license-proxy/README.md)
+    - [FLP version 2.2.0](./2.2.0/02-f5-license-proxy/README.md)
 1. Install BNK
     - [BNK version 2.1.0](./2.1.0/03-bnk/README.md)
+    - [BNK version 2.2.0](./2.2.0/03-bnk/README.md)
 1. Telemetry
     1. [Install prometheus](resources/telemetry/prometheus.md)
     2. [Install Grafana](resources/telemetry/grafana.md)
