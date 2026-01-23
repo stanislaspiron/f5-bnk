@@ -10,9 +10,7 @@ Note:
 ```bash
 cat <<EOF > flo-values.yaml
 global:
-#  imagePullSecrets:
-#    - name: far-secret
-  registryPullSecrets:
+  imagePullSecrets:
   - name: far-secret
   certmgr:
     clusterIssuer: bnk-intermediate-ca
