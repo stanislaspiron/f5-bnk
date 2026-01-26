@@ -23,6 +23,8 @@ spec:
     gatewayAPI: true
     type: BNK
   wholeCluster: true
+  dpu:
+    enabled: false
   # Disable telemetry
   telemetry:
     loggingSubsystem:
@@ -58,9 +60,12 @@ spec:
   advanced:
     envDiscovery:
     # Disable for Demo Mode
-      enabled: false
+      enabled: true
       stopOnFail: true
       runAfterSuccess: true
+      disableCheckVFs: true
+      disableCheckSFConfig: false
+      disableCheckTaints: false
     cneController:
       env:
       - name: "TMM_DEFAULT_MTU"
