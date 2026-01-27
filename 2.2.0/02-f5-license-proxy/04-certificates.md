@@ -135,6 +135,8 @@ spec:
     - flp
     - flp.${f5_flp_namespace}
     - flp.${f5_flp_namespace}.svc.cluster.local
+    ipAddresses:
+    - 10.171.61.45
     secretName: flp-mtls-secret
     # IssuerRef is a reference to the issuer for this certificate.
     issuerRef:

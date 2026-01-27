@@ -30,6 +30,7 @@ cp api-server-secrets/ssl/client/secrets/client_key.pem $HOME/cwc/cwc_api
 Create a bash file named **cwc-api.sh** with the below code.
 
 ```bash
+cat <<'SCRIPTEOF' > cwc-api.sh
 CWC_CERT_PATH="${CWC_CERTS:-$HOME/cwc/cwc_api}"
 
 NODE=$(kubectl -n f5-utils get pod -l app=cwc -o jsonpath='{.items[0].status.hostIP}')
@@ -45,6 +46,7 @@ CURL_CMD=(
 )
 
 "${CURL_CMD[@]}" https://f5-spk-cwc.f5-utils:30881/"$@"
+SCRIPTEOF
 ```
 
 change file permission
