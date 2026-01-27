@@ -38,5 +38,5 @@ Verify Felix Configuration
 ```bash
 kubectl get felixconfiguration default -o json | jq -r '.spec.externalNodesList'
 ```
-[Back](03-networkAttachmentDefinition.md) 
+[Back](03-networkAttachmentDefinition.md)  
 [Next](05-cert-manager.md)

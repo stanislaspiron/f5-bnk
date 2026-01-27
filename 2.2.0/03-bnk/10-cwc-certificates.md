@@ -18,8 +18,8 @@ cat cne_pull_64.json | helm registry login -u _json_key_base64 --password-stdin 
 ## Download F5 Certificate manager from Helm registry
 
 ```bash
-helm pull oci://repo.f5.com/utils/f5-cert-gen --version 0.9.3
-tar zxvf f5-cert-gen-0.9.3.tgz
+helm pull oci://repo.f5.com/utils/f5-cert-gen --version ${f5_cert_gen_version}
+tar zxvf f5-cert-gen-${f5_cert_gen_version}.tgz
 ```
 
 ## Install F5 Cluster Wide Controller Certificates

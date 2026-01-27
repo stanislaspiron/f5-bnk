@@ -1,15 +1,19 @@
 # F5 BNK Manifest
 
-Login to F5 Helm repo
+## Login to F5 Helm repo
 
 ```bash
 cat cne_pull_64.json | helm registry login -u _json_key_base64 --password-stdin repo.f5.com
 ```
 
+## Download file
+
 ```bash
 helm pull oci://repo.f5.com/release/f5-bigip-k8s-manifest --version ${f5_bnk_version}
 tar xvzf f5-bigip-k8s-manifest-${f5_bnk_version}.tgz
 ```
+
+## Store container image versions to variable file 
 
 ```bash
 cat <<EOF >> bnk-env.sh
