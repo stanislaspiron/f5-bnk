@@ -19,4 +19,5 @@ EOF
 exec bash
 ```
 
-
+[Back](07-far.md)  
+[Next](09-otel-certificates.md)

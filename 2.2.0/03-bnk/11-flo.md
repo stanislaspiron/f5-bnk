@@ -93,5 +93,5 @@ spec: $(yq -o=j -I0 '{ "images": .releases.0.docker_images  ,  "version": .relea
 EOF
 ```
 
-[Back](08-cwc-certificates.md)  
-[Next](10-cne-instance.md)
+[Back](10-cwc-certificates.md)  
+[Next](12-cne-instance.md)

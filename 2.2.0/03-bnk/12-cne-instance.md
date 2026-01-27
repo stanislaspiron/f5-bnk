@@ -59,7 +59,6 @@ spec:
 
   advanced:
     envDiscovery:
-    # Disable for Demo Mode
       enabled: true
       stopOnFail: true
       runAfterSuccess: true
@@ -97,5 +96,5 @@ EOF
 ```
 
 
-[Back](09-flo.md)  
-[Next](11-gatewaclass.md)
+[Back](11-flo.md)  
+[Next](13-gatewaclass.md)

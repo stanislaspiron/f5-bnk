@@ -82,5 +82,5 @@ EOF
 ```
 
 
-[Back](06-certificate-autority.md)  
-[Next](08-cwc-certificates.md)
+[Back](08-Manifest.md)  
+[Next](10-cwc-certificates.md)

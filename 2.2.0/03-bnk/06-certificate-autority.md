@@ -51,4 +51,4 @@ EOF
 
 
 [Back](05-cert-manager.md)  
-[Next](07-otel-certificates.md)
+[Next](07-far.md)

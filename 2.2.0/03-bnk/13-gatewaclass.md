@@ -16,5 +16,5 @@ spec:
 EOF
 ```
 
-[Back](10-cne-instance.md)  
-[Next](12-tmm-networking.md)
+[Back](12-cne-instance.md)  
+[Next](14-tmm-networking.md)

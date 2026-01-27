@@ -9,7 +9,7 @@ In virtual environments, the checksum can be malformed, leading to dropped packe
 This feature can be disabled by setting DISABLE_CHECKSUM_OFFLOAD=true on CSRC pods.
 
 This can be configured with one of following methods:
-- Create an entry in BNKGatewayClass manifest **(already done in previous configuration)**
+- Create an entry in CNEInstance manifest **(already done in previous configuration)**
 - Use following command :
 
 ```bash

@@ -28,6 +28,6 @@ EOF
 kubectl get f5-big-log-hslpubs.k8s.f5net.com -n ${f5_bnk_namespace}
 ```
 
-[Back](12-tmm-networking.md)
+[Back](14-tmm-networking.md)
 
 

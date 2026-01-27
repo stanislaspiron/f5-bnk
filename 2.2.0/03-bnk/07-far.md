@@ -68,5 +68,5 @@ kubectl create -f far-secret.yaml -n ${f5_bnk_namespace}
 ```
 
 
-[Back](03-networkAttachmentDefinition.md)  
-[Next](05-cert-manager.md)
+[Back](06-certificate-autority.md)  
+[Next](08-Manifest.md)
