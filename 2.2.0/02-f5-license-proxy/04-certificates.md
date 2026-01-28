@@ -135,6 +135,7 @@ spec:
     - flp
     - flp.${f5_flp_namespace}
     - flp.${f5_flp_namespace}.svc.cluster.local
+    - flp.demo.local
     ipAddresses:
     - 10.171.61.45
     secretName: flp-mtls-secret

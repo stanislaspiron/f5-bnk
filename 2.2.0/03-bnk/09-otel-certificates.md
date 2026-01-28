@@ -8,7 +8,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
     name: external-otelsvr
-    namespace: ${f5_bnk_namespace}
+    namespace: ${f5_utils_namespace}
 spec:
     subject:
         countries:
@@ -23,12 +23,12 @@ spec:
         - PD
     emailAddresses:
         - clientcert@f5net.com
-    commonName: otel-collector-svc.${f5_bnk_namespace}.svc.cluster.local
+    commonName: otel-collector-svc.${f5_utils_namespace}.svc.cluster.local
     # SecretName is the name of the secret resource that will be automatically created and managed by this Certificate resource.
     # It will be populated with a private key and certificate, signed by the denoted issuer.
     dnsNames:
-    - otel-collector-svc.${f5_bnk_namespace}
-    - otel-collector-svc.${f5_bnk_namespace}.svc.cluster.local
+    - otel-collector-svc.${f5_utils_namespace}
+    - otel-collector-svc.${f5_utils_namespace}.svc.cluster.local
     secretName: external-otelsvr-secret
     # IssuerRef is a reference to the issuer for this certificate.
     issuerRef:
@@ -46,8 +46,8 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-    name: external-f5ingotelsvr
-    namespace: ${f5_bnk_namespace}
+    name: tls-otel-grpc-svr
+    namespace: ${f5_utils_namespace}
 spec:
     subject:
         countries:
