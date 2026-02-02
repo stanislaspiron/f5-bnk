@@ -14,8 +14,8 @@ global:
   - name: far-secret
   certmgr:
     clusterIssuer: bnk-intermediate-ca
-#rbac:
-#  create: true 
+rbac:
+  create: true
 containerPlatform: Generic
 ServiceIPFamily: ipv4
 

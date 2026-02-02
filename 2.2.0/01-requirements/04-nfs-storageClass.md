@@ -31,6 +31,9 @@ EOF
 ```
 
 ## Define NFS as default storage Class
+
+**Optional: CNEInstance nw supports storageClassName definition**
+
 ```
 kubectl patch storageclass nfs -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```

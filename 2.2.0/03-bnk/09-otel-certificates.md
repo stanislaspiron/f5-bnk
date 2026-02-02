@@ -1,6 +1,7 @@
 # Open Telemetry Certificates
 
-Create OTEL certificates in the same namespace as BNK
+Create OTEL certificates in the same namespace as BNK.  
+**Note: This is not required anymore. FLO creates OTEL certificates**
 
 ```bash
 cat <<EOF | kubectl apply -f -

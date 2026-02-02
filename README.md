@@ -26,12 +26,14 @@ Note:
 
 ## Lab deployment
 
-1. [Create variables file](2.1.0/01-requirements/01-variables.md)
+1. [Create variables file](2.2.0/01-requirements/01-variables.md)
 1. Configure nodes network interfaces
-    - [Dedicated f5-tmm nodes](2.1.0/01-requirements/02-host-network.md)
-    - [App pods and f5-tmm running on same nodes](2.1.0/01-requirements/02-host-network-macvlan.md)
-1. [Install Kubernetes cluster with Kubeadm](2.1.0/01-requirements/03-kubeadm.md)
-1. [Configure NFS storageClass](2.1.0/01-requirements/04-nfs-storageClass.md)
+    - [Dedicated f5-tmm nodes](2.2.0/01-requirements/02-host-network.md)
+    - [App pods and f5-tmm running on same nodes](2.2.0/01-requirements/02-host-network-macvlan.md)
+1. [Install Kubernetes cluster with Kubeadm](2.2.0/01-requirements/03-kubeadm.md)
+1. Configure storageClass
+    - [NFS storageClass](2.2.0/01-requirements/04-nfs-storageClass.md)
+    - [local storageClass](2.2.0/01-requirements/04-local-storageClass.md)
 1. Optional - Install F5 License Proxy
     - [FLP version 2.1.0](./2.1.0/02-f5-license-proxy/README.md)
     - [FLP version 2.2.0](./2.2.0/02-f5-license-proxy/README.md)

@@ -19,6 +19,7 @@ metadata:
   namespace: ${f5_bnk_namespace}
 spec:
   manifestVersion: ${f5_bnk_version}
+  storageClassName: nfs
   product:
     gatewayAPI: true
     type: BNK
