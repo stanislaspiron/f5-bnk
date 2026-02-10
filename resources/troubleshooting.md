@@ -4,6 +4,25 @@
 kubectl exec -it daemonset/f5-tmm -c debug -n f5-bnk -- bash
 ```
 
+# View configuration
+
+## Show virtual servers
+```
+configview virtual_server
+```
+
+result
+
+```
+request:[declTmm.virtual_server]:{id:"myapp-vip12-10.245.3.12-https-vs"  enabled:true  source_address_translation_type:"SRC_TRANS_AUTOMAP"  default_pool:"myapp-vip12-10.245.3.12-https-empty-pool-gwroute"  traffic_matching_criteria:"myapp-vip12-10.245.3.12-https-tmc"  irules_reference:"myapp-irule-ping"} action:0 state:5 
+```
+
+## Show all configuration
+
+```
+configview show all
+```
+
 # View virtual servers (including egress)
 
 ```
